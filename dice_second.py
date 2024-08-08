@@ -9,15 +9,17 @@ def calculate_sum_probabilities(die1, die2):
     count = Counter(sums)
     total = len(sums)
     prob_dict = {}
-    for k, v in count.items():
-        prob_dict[k] = v / total
+    for final_sum, no_of_times in count.items():
+        prob_dict[final_sum] = no_of_times / total
     return prob_dict
 
 def dice_generate():
     die_a = []
-    for _ in range(5):
+    for i in range(2):
         die_a.append(random.randint(2, 4))
-    die_a.append(1)
+    for i in range(1,5):    
+        die_a.append(i)
+    
 
     standard_die = [1, 2, 3, 4, 5, 6]
     standard_probs = calculate_sum_probabilities(standard_die, standard_die)
