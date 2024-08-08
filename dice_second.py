@@ -43,14 +43,12 @@ def dice_are_valid(die_a, die_b, standard_probs, change=1e-6):
 standard_die = [1, 2, 3, 4, 5, 6]
 standard_probs = calculate_sum_probabilities(standard_die, standard_die)
 
-attempts = 0
 
 
 found_valid_dice = False
 while True:
     die_a, die_b = dice_generate()
     if dice_are_valid(die_a, die_b, standard_probs):
-        print("Found valid dice after", attempts + 1, "attempts:")
         print("Die A:", die_a)
         print("Die B:", die_b)
         
@@ -59,4 +57,4 @@ while True:
 
 
 if not found_valid_dice:
-    print("Could not find valid dice within the maximum number of attempts.")
+    print("Could not find valid dice.")
